@@ -2,6 +2,7 @@ package com.example;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,6 +23,14 @@ public class StreamApiTutorialApplication {
 		
 		//foreach use case
 		employees.stream().forEach(employee->System.out.println(employee));
+		
+		//map to increase the salary for each employee
+		List<Employee> increasedSalary = employees.stream().map(employee-> new Employee(employee.getFirstName(),
+				employee.getLastName(),
+				employee.getSalary() * 1.10,
+				employee.getProjects())).collect(Collectors.toList());
+		
+		System.out.println(increasedSalary);
 	}
 
 }
