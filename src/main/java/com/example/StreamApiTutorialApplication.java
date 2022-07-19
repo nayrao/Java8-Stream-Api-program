@@ -2,6 +2,7 @@ package com.example;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.boot.SpringApplication;
@@ -24,13 +25,29 @@ public class StreamApiTutorialApplication {
 		//foreach use case
 		employees.stream().forEach(employee->System.out.println(employee));
 		
-		//map to increase the salary for each employee
+		//using map() to increase the salary for each employee
 		List<Employee> increasedSalary = employees.stream().map(employee-> new Employee(employee.getFirstName(),
 				employee.getLastName(),
 				employee.getSalary() * 1.10,
 				employee.getProjects())).collect(Collectors.toList());
 		
 		System.out.println(increasedSalary);
+		
+		//write program whose salary is greater than 10000 then increase that salary only
+		List<Employee> filterEmployee = employees.stream()
+		.filter(employee->employee.getSalary() >10000).map(employee-> new Employee(employee.getFirstName(),
+				employee.getLastName(),
+				employee.getSalary() * 1.10,
+				employee.getProjects())).collect(Collectors.toList());
+		
+		System.out.println("Filter Employeee::"+filterEmployee);
+		//findFirst Logic
+		Optional<Employee> findFirst = employees.stream()
+		.filter(employee->employee.getSalary() >10000).map(employee-> new Employee(employee.getFirstName(),
+				employee.getLastName(),
+				employee.getSalary() * 1.10,
+				employee.getProjects())).findFirst();
+		System.out.println("FindFirst::"+findFirst);
 	}
 
 }
