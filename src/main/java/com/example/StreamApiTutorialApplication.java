@@ -22,6 +22,7 @@ public class StreamApiTutorialApplication {
 	public static void main(String[] args) {
 		//SpringApplication.run(StreamApiTutorialApplication.class, args);
 		System.out.println("Entered by rajesh");
+		System.out.println("Git Demo Purpose");
 		//foreach use case
 		employees.stream().forEach(employee->System.out.println(employee));
 		
