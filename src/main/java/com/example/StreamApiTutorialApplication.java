@@ -24,7 +24,7 @@ public class StreamApiTutorialApplication {
 		System.out.println("Entered by rajesh");
 		System.out.println("Git Demo Purpose");
 		System.out.println("My changes");
-		System.out.println("Our changes");
+		System.out.println("Our changes Hi");
 		//foreach use case
 		employees.stream().forEach(employee->System.out.println(employee));
 		
